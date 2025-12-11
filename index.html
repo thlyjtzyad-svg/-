@@ -2,206 +2,250 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaiser Store | متجر كايزر</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaiser Store | متجر كايزر</title>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
 
-        :root {
-            --primary: #ff003c;
-            --primary-dark: #cc0030;
-            --text-light: #fff;
-        }
+:root {
+    --primary: #ff003c;
+    --primary-dark: #cc0030;
+    --text-light: #fff;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Cairo", sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
 
-        body {
-            background: #000;
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
+body {
+    background: #000;
+    color: var(--text-light);
+    overflow-x: hidden;
+}
 
-        /* الخلفية فقط للواجهة */
-        .hero {
-            min-height: 100vh;
-            background: url('https://iili.io/f5vZ3e2.jpg') no-repeat top center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding: 40px 20px;
-        }
+/* HERO SECTION */
+.hero {
+    min-height: 100vh;
+    background: url('https://iili.io/f5vZ3e2.jpg') no-repeat top center;
+    background-size: cover;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+}
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
-            z-index: 0;
-        }
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
 
-        .hero * {
-            position: relative;
-            z-index: 1;
-        }
+.hero * { position: relative; z-index: 1; }
 
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            animation: float 4s infinite ease-in-out;
-            margin-bottom: 20px;
-        }
+.hero-logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    animation: float 4s infinite ease-in-out;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0); }
-        }
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
 
-        .cta-btn {
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-            padding: 12px 32px;
-            color: white;
-            font-size: 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            margin-top: 15px;
-            display: inline-block;
-            box-shadow: 0 0 20px rgba(255,0,60,0.7);
-        }
+.cta-btn {
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    padding: 12px 32px;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
 
-        .accounts {
-            padding: 40px 20px;
-            background: #000;
-        }
+/* ACCOUNT CARDS */
+.accounts {
+    padding: 40px 20px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
 
-        .card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+.card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
 
-        .card img {
-            width: 100%;
-            display: block;
-            max-height: 360px;
-            object-fit: cover;
-        }
+.card img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
 
-        .card-content {
-            padding: 15px;
-        }
+.card-content {
+    padding: 15px;
+}
 
-        .buy {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 12px;
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-            color: #fff;
-            border-radius: 25px;
-            margin-top: 10px;
-            text-decoration: none;
-            font-size: 18px;
-        }
+/* MODAL POPUP */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
 
-        footer {
-            padding: 30px;
-            text-align: center;
-            margin-top: 40px;
-            background: #000;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
+.modal-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    color: white;
+}
 
-        footer a {
-            color: #fff;
-            display: block;
-            margin: 10px auto;
-            font-size: 20px;
-            text-decoration: none;
-        }
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-    </style>
+.close-btn {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background: #900;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.buy-btn {
+    display: block;
+    margin-top: 12px;
+    padding: 12px;
+    background: linear-gradient(45deg, #ff003c, #cc0030);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <img src="https://iili.io/f5vZ3e2.jpg" class="hero-logo">
-        <h1>متجر كايزر لبيع حسابات فري 000000</h1>
-        <p>حسابات نادرة — سكنات نارية — ضمان كامل</p>
-        <a href="#accounts" class="cta-btn">عرض الحسابات المتوفرة</a>
-    </section>
+<!-- HERO -->
+<section class="hero">
+    <img src="https://iili.io/f5vZ3e2.jpg" class="hero-logo">
+    <h1>متجر كايزر لبيع حسابات فري 555555555</h1>
+    <p>حسابات نادرة — سكنات قوية — ضمان كامل</p>
+    <a href="#accounts" class="cta-btn">عرض الحسابات</a>
+</section>
 
-    <!-- ACCOUNTS -->
-    <section id="accounts" class="accounts">
-        <div class="grid">
+<!-- ACCOUNTS -->
+<section id="accounts" class="accounts">
 
-            <div class="card">
-                <img src="https://iili.io/f5Uld8B.md.jpg">
-                <div class="card-content">
-                    <h3>حساب ساكورا لفل 83</h3>
-                    <a href="https://wa.me/967770117387?text=أريد شراء الحساب 1" class="buy">شراء الآن</a>
-                </div>
+    <div class="grid">
+
+        <!-- حساب 1 -->
+        <div class="card" onclick="openModal(
+            'https://iili.io/f5Uld8B.md.jpg',
+            'حساب ساكورا لفل 83',
+            '• لفل 83<br>• سكنات نادرة<br>• باسات قديمة<br>• تطويرات أسلحة'
+        )">
+            <img src="https://iili.io/f5Uld8B.md.jpg">
+            <div class="card-content">
+                <h3>حساب ساكورا لفل 83</h3>
             </div>
-
-            <div class="card">
-                <img src="https://iili.io/f5UGS1a.md.jpg">
-                <div class="card-content">
-                    <h3>حساب الحركات النادرة</h3>
-                    <a href="https://wa.me/967770117387?text=أريد شراء الحساب 2" class="buy">شراء الآن</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://iili.io/f5UhDJa.md.jpg">
-                <div class="card-content">
-                    <h3>حساب شعار ذهبي لفل 79</h3>
-                    <a href="https://wa.me/967770117387?text=أريد شراء الحساب 3" class="buy">شراء الآن</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://iili.io/f5UwKCB.md.jpg">
-                <div class="card-content">
-                    <h3>حساب داركر الكريمنال</h3>
-                    <a href="https://wa.me/967770117387?text=أريد شراء الحساب 4" class="buy">شراء الآن</a>
-                </div>
-            </div>
-
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <a href="https://wa.me/967770117387">📱 للتواصل واتساب</a>
-        <a href="https://instagram.com/KIZR_FF">📸 Instagram: KIZR_FF</a>
-        <p>© 2025 Kaiser Store</p>
-    </footer>
+        <!-- حساب 2 -->
+        <div class="card" onclick="openModal(
+            'https://iili.io/f5UGS1a.md.jpg',
+            'حساب الحركات النادرة',
+            '• أنيماشن أسطوري<br>• رقصات نادرة<br>• سكنات مطورة'
+        )">
+            <img src="https://iili.io/f5UGS1a.md.jpg">
+            <div class="card-content">
+                <h3>حساب الحركات النادرة</h3>
+            </div>
+        </div>
+
+        <!-- حساب 3 -->
+        <div class="card" onclick="openModal(
+            'https://iili.io/f5UhDJa.md.jpg',
+            'حساب شعار ذهبي لفل 79',
+            '• شعار ذهبي<br>• لفل 79<br>• سكنات قوية'
+        )">
+            <img src="https://iili.io/f5UhDJa.md.jpg">
+            <div class="card-content">
+                <h3>حساب شعار ذهبي 79</h3>
+            </div>
+        </div>
+
+        <!-- حساب 4 -->
+        <div class="card" onclick="openModal(
+            'https://iili.io/f5UwKCB.md.jpg',
+            'حساب داركر الكريمنال',
+            '• لفل 68<br>• سكنات كريمنال نادرة<br>• أنيماشنات قوية'
+        )">
+            <img src="https://iili.io/f5UwKCB.md.jpg">
+            <div class="card-content">
+                <h3>حساب الكريمنال</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <img id="modal-img">
+        <h2 id="modal-title"></h2>
+        <p id="modal-details"></p>
+
+        <a id="buy-link" class="buy-btn" target="_blank">شراء الآن</a>
+        <button class="close-btn" onclick="closeModal()">إغلاق</button>
+    </div>
+</div>
+
+<script>
+function openModal(img, title, details) {
+    document.getElementById("modal-img").src = img;
+    document.getElementById("modal-title").innerHTML = title;
+    document.getElementById("modal-details").innerHTML = details;
+
+    // رابط الشراء
+    document.getElementById("buy-link").href =
+        "https://wa.me/967770117387?text=أريد شراء: " + title;
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
