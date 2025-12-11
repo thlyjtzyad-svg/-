@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiser Store | متجر كايزر لبيع حسابات فري فاير</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+        :root {
+            --primary: #ff003c;
+            --primary-dark: #cc0030;
+            --accent: #ffd700;
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* 🎨 خلفية كاملة مع وضوح الشعار */
+        body {
+            background: url('https://iili.io/f5vZ3e2.jpg') no-repeat top center fixed;
+            background-size: cover; /* يغطي الصفحة كاملة */
+            position: relative;
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65); /* تغميق خفيف */
+            backdrop-filter: blur(4px);   /* بلور خفيف فقط */
+            z-index: -1;
+        }
+
+        /* ⚡ حركة الشعار */
+        .hero-logo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 35px rgba(255,0,60,0.7);
+            margin-bottom: 2rem;
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* ✨ زر يضوي */
+        .cta-btn {
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #ff003c, #cc0030);
+            color: white;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            margin-top: 1.5rem;
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.8);
+            animation: glow 2.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(255,0,60,0.4); }
+            100% { box-shadow: 0 0 40px rgba(255,0,60,1); }
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .card-img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .accounts {
+            padding: 4rem 5%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.55);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(6px);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .feature-tag {
+            background: rgba(255,255,255,0.12);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            margin-left: 5px;
+        }
+
+        /* 🔻 Footer */
+        footer {
+            background: rgba(0,0,0,0.65);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 4rem;
+            backdrop-filter: blur(6px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.4rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: scale(1.15);
+        }
+
+        .copyright {
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <img src="https://iili.io/f5vZ3e2.jpg" class="hero-logo">
+        <h1>متجر كايزر<br>الأفضل لبيع حسابات فري فاير</h1>
+        <p>حسابات نادرة – أسعار مميزة – ضمان ذهبي.</p>
+        <a href="#accounts" class="cta-btn">عرض الحسابات المتوفرة</a>
+    </section>
+
+    <!-- الحسابات -->
+    <section id="accounts" class="accounts">
+
+        <div class="grid">
+
+            <div class="card">
+                <img src="https://iili.io/f5Uld8B.md.jpg" class="card-img">
+                <div class="card-content">
+                    <h3>حساب مستوى 83 (ساكورا)</h3>
+                    <div class="feature-tag">لفل 83</div>
+                    <p>سكنات نادرة – باسات قديمة.</p>
+                    <a class="cta-btn" href="https://wa.me/967770117387?text=أريد شراء الحساب رقم 1" target="_blank">شراء الآن</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://iili.io/f5UGS1a.md.jpg" class="card-img">
+                <div class="card-content">
+                    <h3>حساب الحركات النادرة</h3>
+                    <div class="feature-tag">أنيماشن أسطوري</div>
+                    <p>حركات نادرة وسكنات مطورة.</p>
+                    <a class="cta-btn" href="https://wa.me/967770117387?text=أريد شراء الحساب رقم 2" target="_blank">شراء الآن</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://iili.io/f5UhDJa.md.jpg" class="card-img">
+                <div class="card-content">
+                    <h3>حساب لفل 79 شعار ذهبي</h3>
+                    <div class="feature-tag">لفل 79</div>
+                    <p>شعار ذهبي + محتوى نادر.</p>
+                    <a class="cta-btn" href="https://wa.me/967770117387?text=أريد شراء الحساب رقم 3" target="_blank">شراء الآن</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://iili.io/f5UwKCB.md.jpg" class="card-img">
+                <div class="card-content">
+                    <h3>حساب داركر (الكريمنال)</h3>
+                    <div class="feature-tag">لفل 68</div>
+                    <p>سكنات كريمنال نادرة.</p>
+                    <a class="cta-btn" href="https://wa.me/967770117387?text=أريد شراء الحساب رقم 4" target="_blank">شراء الآن</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/967770117387" class="social-link" target="_blank">📱 +967770117387</a>
+            <a href="https://instagram.com/KIZR_FF" class="social-link" target="_blank">📸 @KIZR_FF</a>
+        </div>
+
+        <p class="copyright">© 2025 Kaiser Store — جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+
+</html>
