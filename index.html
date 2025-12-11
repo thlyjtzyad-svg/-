@@ -12,48 +12,40 @@
 :root {
     --primary: #ff003c;
     --primary-dark: #cc0030;
+    --card-bg: #111;
     --text-light: #fff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Cairo", sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Cairo", sans-serif; }
 
-body {
-    background: #000;
-    color: var(--text-light);
-    overflow-x: hidden;
-}
-
-/* HERO SECTION */
+/* ====== HERO SECTION ====== */
 .hero {
     min-height: 100vh;
-    background: url('https://iili.io/f5vZ3e2.jpg') no-repeat top center;
+    background: url('https://iili.io/f5vZ3e2.jpg') no-repeat center top;
     background-size: cover;
+    padding: 60px 20px;
     text-align: center;
-    padding: 40px;
     position: relative;
+    color: #fff;
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.60);
+    backdrop-filter: blur(4px);
 }
 
 .hero * { position: relative; z-index: 1; }
 
 .hero-logo {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 4px solid var(--primary);
     animation: float 4s infinite ease-in-out;
+    margin-bottom: 20px;
 }
 
 @keyframes float {
@@ -64,78 +56,81 @@ body {
 
 .cta-btn {
     background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-    padding: 12px 32px;
-    color: white;
+    padding: 14px 28px;
     border-radius: 30px;
-    text-decoration: none;
-    display: inline-block;
     margin-top: 20px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
 }
 
-/* ACCOUNT CARDS */
+/* ====== ACCOUNTS SECTION ====== */
 .accounts {
+    background: #000;
     padding: 40px 20px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 25px;
 }
 
 .card {
-    background: rgba(255,255,255,0.06);
-    border-radius: 15px;
+    background: var(--card-bg);
+    border-radius: 20px;
     overflow: hidden;
+    transition: 0.3s;
     cursor: pointer;
+    border: 1px solid #222;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(255,0,50,0.3);
 }
 
 .card img {
     width: 100%;
-    max-height: 350px;
+    height: 270px;
     object-fit: cover;
 }
 
 .card-content {
     padding: 15px;
+    color: white;
 }
 
-/* MODAL POPUP */
+.card-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* ====== MODAL POPUP ====== */
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
     z-index: 9999;
 }
 
-.modal-content {
+.modal-box {
     background: #111;
     padding: 20px;
-    border-radius: 15px;
     width: 90%;
-    max-width: 450px;
+    max-width: 420px;
+    border-radius: 15px;
     text-align: center;
     color: white;
 }
 
-.modal img {
+.modal-box img {
     width: 100%;
     border-radius: 10px;
-}
-
-.close-btn {
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-    background: #900;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
 }
 
 .buy-btn {
@@ -143,83 +138,94 @@ body {
     margin-top: 12px;
     padding: 12px;
     background: linear-gradient(45deg, #ff003c, #cc0030);
-    color: #fff;
     border-radius: 25px;
     text-decoration: none;
+    color: #fff;
     font-size: 18px;
+}
+
+.close-btn {
+    background: #700;
+    padding: 10px;
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    border: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- ====== HERO ====== -->
 <section class="hero">
     <img src="https://iili.io/f5vZ3e2.jpg" class="hero-logo">
-    <h1>متجر كايزر لبيع حسابات فري 555555555</h1>
-    <p>حسابات نادرة — سكنات قوية — ضمان كامل</p>
+    <h1>متجر كايزر لبيع حسابات فري 7777777777777</h1>
+    <p>حسابات نادرة · سكنات قوية · ضمان كامل</p>
     <a href="#accounts" class="cta-btn">عرض الحسابات</a>
 </section>
 
-<!-- ACCOUNTS -->
+<!-- ====== ACCOUNTS ====== -->
 <section id="accounts" class="accounts">
 
-    <div class="grid">
+<div class="grid">
 
-        <!-- حساب 1 -->
-        <div class="card" onclick="openModal(
-            'https://iili.io/f5Uld8B.md.jpg',
-            'حساب ساكورا لفل 83',
-            '• لفل 83<br>• سكنات نادرة<br>• باسات قديمة<br>• تطويرات أسلحة'
-        )">
-            <img src="https://iili.io/f5Uld8B.md.jpg">
-            <div class="card-content">
-                <h3>حساب ساكورا لفل 83</h3>
-            </div>
+    <!-- حساب 1 -->
+    <div class="card" onclick="openModal(
+        'https://iili.io/f5Uld8B.md.jpg',
+        'حساب ساكورا لفل 83',
+        '• لفل 83<br>• سكنات نادرة جداً<br>• باسات قديمة<br>• تطويرات أسلحة'
+    )">
+        <img src="https://iili.io/f5Uld8B.md.jpg">
+        <div class="card-content">
+            <h3>حساب ساكورا لفل 83</h3>
         </div>
-
-        <!-- حساب 2 -->
-        <div class="card" onclick="openModal(
-            'https://iili.io/f5UGS1a.md.jpg',
-            'حساب الحركات النادرة',
-            '• أنيماشن أسطوري<br>• رقصات نادرة<br>• سكنات مطورة'
-        )">
-            <img src="https://iili.io/f5UGS1a.md.jpg">
-            <div class="card-content">
-                <h3>حساب الحركات النادرة</h3>
-            </div>
-        </div>
-
-        <!-- حساب 3 -->
-        <div class="card" onclick="openModal(
-            'https://iili.io/f5UhDJa.md.jpg',
-            'حساب شعار ذهبي لفل 79',
-            '• شعار ذهبي<br>• لفل 79<br>• سكنات قوية'
-        )">
-            <img src="https://iili.io/f5UhDJa.md.jpg">
-            <div class="card-content">
-                <h3>حساب شعار ذهبي 79</h3>
-            </div>
-        </div>
-
-        <!-- حساب 4 -->
-        <div class="card" onclick="openModal(
-            'https://iili.io/f5UwKCB.md.jpg',
-            'حساب داركر الكريمنال',
-            '• لفل 68<br>• سكنات كريمنال نادرة<br>• أنيماشنات قوية'
-        )">
-            <img src="https://iili.io/f5UwKCB.md.jpg">
-            <div class="card-content">
-                <h3>حساب الكريمنال</h3>
-            </div>
-        </div>
-
     </div>
+
+    <!-- حساب 2 -->
+    <div class="card" onclick="openModal(
+        'https://iili.io/f5UGS1a.md.jpg',
+        'حساب الحركات النادرة',
+        '• أنيماشن أسطوري<br>• رقصات نادرة<br>• سكنات مطورة'
+    )">
+        <img src="https://iili.io/f5UGS1a.md.jpg">
+        <div class="card-content">
+            <h3>حساب الحركات النادرة</h3>
+        </div>
+    </div>
+
+    <!-- حساب 3 -->
+    <div class="card" onclick="openModal(
+        'https://iili.io/f5UhDJa.md.jpg',
+        'حساب شعار ذهبي لفل 79',
+        '• شعار ذهبي<br>• سكنات نادرة<br>• تطويرات قوية'
+    )">
+        <img src="https://iili.io/f5UhDJa.md.jpg">
+        <div class="card-content">
+            <h3>حساب شعار ذهبي 79</h3>
+        </div>
+    </div>
+
+    <!-- حساب 4 -->
+    <div class="card" onclick="openModal(
+        'https://iili.io/f5UwKCB.md.jpg',
+        'حساب الكريمنال',
+        '• لفل 68<br>• سكنات كريمنال نادرة<br>• سكنات مطورة'
+    )">
+        <img src="https://iili.io/f5UwKCB.md.jpg">
+        <div class="card-content">
+            <h3>حساب الكريمنال</h3>
+        </div>
+    </div>
+
+</div>
 </section>
 
-<!-- MODAL -->
+<!-- ====== MODAL ====== -->
 <div id="modal" class="modal">
-    <div class="modal-content">
+    <div class="modal-box">
         <img id="modal-img">
         <h2 id="modal-title"></h2>
         <p id="modal-details"></p>
@@ -235,9 +241,8 @@ function openModal(img, title, details) {
     document.getElementById("modal-title").innerHTML = title;
     document.getElementById("modal-details").innerHTML = details;
 
-    // رابط الشراء
     document.getElementById("buy-link").href =
-        "https://wa.me/967770117387?text=أريد شراء: " + title;
+        "https://wa.me/967770117387?text=أريد شراء " + title;
 
     document.getElementById("modal").style.display = "flex";
 }
