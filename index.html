@@ -16,36 +16,44 @@
     --text-light: #fff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Cairo", sans-serif; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
 
 /* ====== HERO SECTION ====== */
 .hero {
     min-height: 100vh;
     background: url('https://iili.io/f5vZ3e2.jpg') no-repeat center top;
     background-size: cover;
-    padding: 60px 20px;
     text-align: center;
     position: relative;
-    color: #fff;
+    color: white;
+    padding: 60px 20px;
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.60);
+    background: rgba(0,0,0,0.65);
     backdrop-filter: blur(4px);
 }
 
-.hero * { position: relative; z-index: 1; }
+.hero * {
+    position: relative;
+    z-index: 1;
+}
 
 .hero-logo {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 4px solid var(--primary);
-    animation: float 4s infinite ease-in-out;
     margin-bottom: 20px;
+    animation: float 4s infinite ease-in-out;
 }
 
 @keyframes float {
@@ -54,34 +62,42 @@
     100% { transform: translateY(0); }
 }
 
-.cta-btn {
+.btn {
     background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-    padding: 14px 28px;
+    padding: 14px 30px;
     border-radius: 30px;
-    margin-top: 20px;
-    font-size: 20px;
-    color: #fff;
     text-decoration: none;
+    color: white;
+    font-size: 22px;
+    margin-top: 25px;
+    display: inline-block;
 }
 
 /* ====== ACCOUNTS SECTION ====== */
-.accounts {
+#accounts {
     background: #000;
     padding: 40px 20px;
+    color: white;
+}
+
+.section-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
 }
 
 .card {
     background: var(--card-bg);
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
-    transition: 0.3s;
     cursor: pointer;
+    transition: 0.3s;
     border: 1px solid #222;
 }
 
@@ -92,30 +108,24 @@
 
 .card img {
     width: 100%;
-    height: 270px;
+    height: 260px;
     object-fit: cover;
 }
 
 .card-content {
     padding: 15px;
-    color: white;
 }
 
-.card-content h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/* ====== MODAL POPUP ====== */
+/* ====== MODAL ====== */
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.88);
-    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 99999;
 }
 
 .modal-box {
@@ -124,8 +134,8 @@
     width: 90%;
     max-width: 420px;
     border-radius: 15px;
-    text-align: center;
     color: white;
+    text-align: center;
 }
 
 .modal-box img {
@@ -135,40 +145,44 @@
 
 .buy-btn {
     display: block;
-    margin-top: 12px;
+    margin-top: 15px;
     padding: 12px;
     background: linear-gradient(45deg, #ff003c, #cc0030);
     border-radius: 25px;
+    color: white;
     text-decoration: none;
-    color: #fff;
     font-size: 18px;
 }
 
 .close-btn {
-    background: #700;
+    margin-top: 10px;
     padding: 10px;
     width: 100%;
-    margin-top: 12px;
+    background: #700;
+    border: none;
     border-radius: 10px;
     color: white;
     font-size: 18px;
-    border: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ====== HERO ====== -->
+<!-- ================= HERO SECTION ================ -->
 <section class="hero">
     <img src="https://iili.io/f5vZ3e2.jpg" class="hero-logo">
-    <h1>متجر كايزر لبيع حسابات فري 7777777777777</h1>
-    <p>حسابات نادرة · سكنات قوية · ضمان كامل</p>
-    <a href="#accounts" class="cta-btn">عرض الحسابات</a>
+    <h1>متجر كايزر لبيع حسابات فري 55557777</h1>
+    <p>حسابات نادرة — سكنات قوية — ضمان كامل</p>
+
+    <!-- ينزل لقسم الحسابات -->
+    <a href="#accounts" class="btn">عرض الحسابات</a>
 </section>
 
-<!-- ====== ACCOUNTS ====== -->
-<section id="accounts" class="accounts">
+<!-- ================= ACCOUNTS SECTION ================ -->
+<section id="accounts">
+
+<h2 class="section-title">جميع الحسابات المتوفرة</h2>
 
 <div class="grid">
 
@@ -200,11 +214,11 @@
     <div class="card" onclick="openModal(
         'https://iili.io/f5UhDJa.md.jpg',
         'حساب شعار ذهبي لفل 79',
-        '• شعار ذهبي<br>• سكنات نادرة<br>• تطويرات قوية'
+        '• شعار ذهبي<br>• تطويرات قوية<br>• سكنات نادرة'
     )">
         <img src="https://iili.io/f5UhDJa.md.jpg">
         <div class="card-content">
-            <h3>حساب شعار ذهبي 79</h3>
+            <h3>حساب شعار ذهبي لفل 79</h3>
         </div>
     </div>
 
@@ -212,7 +226,7 @@
     <div class="card" onclick="openModal(
         'https://iili.io/f5UwKCB.md.jpg',
         'حساب الكريمنال',
-        '• لفل 68<br>• سكنات كريمنال نادرة<br>• سكنات مطورة'
+        '• لفل 68<br>• سكنات كريمنال نادرة<br>• تطويرات أسلحة'
     )">
         <img src="https://iili.io/f5UwKCB.md.jpg">
         <div class="card-content">
@@ -221,9 +235,10 @@
     </div>
 
 </div>
+
 </section>
 
-<!-- ====== MODAL ====== -->
+<!-- ================= MODAL POPUP ================ -->
 <div id="modal" class="modal">
     <div class="modal-box">
         <img id="modal-img">
@@ -231,6 +246,7 @@
         <p id="modal-details"></p>
 
         <a id="buy-link" class="buy-btn" target="_blank">شراء الآن</a>
+
         <button class="close-btn" onclick="closeModal()">إغلاق</button>
     </div>
 </div>
@@ -242,7 +258,7 @@ function openModal(img, title, details) {
     document.getElementById("modal-details").innerHTML = details;
 
     document.getElementById("buy-link").href =
-        "https://wa.me/967770117387?text=أريد شراء " + title;
+        "https://wa.me/967770117387?text=أريد شراء: " + title;
 
     document.getElementById("modal").style.display = "flex";
 }
