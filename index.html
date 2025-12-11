@@ -24,28 +24,46 @@
             font-family: 'Cairo', sans-serif;
         }
 
-        /* 🎨 خلفية كاملة مع وضوح الشعار */
+        /* 🔥 خلفية الصفحة تكون سوداء فقط */
         body {
-            background: url('https://iili.io/f5vZ3e2.jpg') no-repeat top center fixed;
-            background-size: cover; /* يغطي الصفحة كاملة */
-            position: relative;
+            background: #000;
             color: var(--text-light);
             overflow-x: hidden;
         }
 
-        body::before {
+        /* 🔥 الخلفية فقط للواجهة (HERO) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+
+            background: url('https://iili.io/f5vZ3e2.jpg') no-repeat center top;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero::before {
             content: "";
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.65); /* تغميق خفيف */
-            backdrop-filter: blur(4px);   /* بلور خفيف فقط */
-            z-index: -1;
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(4px);
+            z-index: 0;
         }
 
-        /* ⚡ حركة الشعار */
+        .hero * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ⚡ الشعار مع الحركة */
         .hero-logo {
             width: 220px;
             height: 220px;
@@ -73,7 +91,6 @@
             text-decoration: none;
             display: inline-block;
             cursor: pointer;
-            text-align: center;
             width: 100%;
             margin-top: 1.5rem;
             box-shadow: 0 0 25px rgba(255, 0, 60, 0.8);
@@ -85,24 +102,7 @@
             100% { box-shadow: 0 0 40px rgba(255,0,60,1); }
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .card-img {
-            width: 100%;
-            max-height: 420px;
-            object-fit: cover;
-            display: block;
-            border-bottom: 2px solid rgba(255,255,255,0.2);
-        }
-
+        /* 🟥 قسم الحسابات */
         .accounts {
             padding: 4rem 5%;
         }
@@ -114,11 +114,17 @@
         }
 
         .card {
-            background: rgba(0,0,0,0.55);
+            background: rgba(255,255,255,0.05);
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(6px);
+        }
+
+        .card-img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
         }
 
         .card-content {
@@ -129,7 +135,7 @@
             background: rgba(255,255,255,0.12);
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
-            margin-left: 5px;
+            font-size: 0.9rem;
         }
 
         /* 🔻 Footer */
@@ -138,8 +144,6 @@
             padding: 3rem 5%;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.2);
-            margin-top: 4rem;
-            backdrop-filter: blur(6px);
         }
 
         .social-links {
@@ -154,9 +158,6 @@
             color: white;
             font-size: 1.4rem;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             transition: 0.3s;
         }
 
@@ -177,7 +178,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <img src="https://iili.io/f5vZ3e2.jpg" class="hero-logo">
-        <h1> 888888888888<br>الأفضل لبيع حسابات فري فاير</h1>
+        <h1>متجر كايزر<br>الأفضل لبيع حسابات فري فاير</h1>
         <p>حسابات نادرة – أسعار مميزة – ضمان ذهبي.</p>
         <a href="#accounts" class="cta-btn">عرض الحسابات المتوفرة</a>
     </section>
@@ -241,8 +242,4 @@
     </footer>
 
 </body>
-
 </html>
-
-
-
